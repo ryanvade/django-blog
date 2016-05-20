@@ -60,3 +60,6 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#Prevent Pycharm from adding its project settings
+.idea
