@@ -1,21 +1,26 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def posts_create(request):
-    return HttpResponse("<h1>Create</h1>")
+    context = dict(title="Create")
+    return render(request, "index.html", context)
 
 
 def posts_detail(request):
-    return HttpResponse("<h1>Detail</h1>")
+    context = dict(title="Detail is working")
+    return render(request, "index.html", context)
 
 
 def posts_list(request):
-    return HttpResponse("<h1>List</h1>")
+    context = dict(title="List is working")
+    return render(request, "index.html", context)
 
 
 def posts_update(request):
-    return HttpResponse("<h1>Update</h1>")
+    context = dict(title="Update is working")
+    return render(request, "index.html", context)
 
 
 def posts_delete(request):
-    return HttpResponse("<h1>Delete</h1>")
+    context = dict(title="Delete is working")
+    return render(request, "index.html", context)
