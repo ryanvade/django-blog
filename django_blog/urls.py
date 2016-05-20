@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from posts import views as posts_view
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^posts/$', posts_view.posts_home),
 ]
