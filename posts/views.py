@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from posts.models import Post
+
 
 def posts_create(request):
     context = dict(title="Create")
@@ -12,7 +14,8 @@ def posts_detail(request):
 
 
 def posts_list(request):
-    context = dict(title="List is working")
+    queryset = Post.objects.all()
+    context = dict(object_list=queryset, title="List is working")
     return render(request, "index.html", context)
 
 
