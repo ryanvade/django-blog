@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from posts.models import Post
 
@@ -9,8 +9,9 @@ def posts_create(request):
 
 
 def posts_detail(request):
-    context = dict(title="Detail is working")
-    return render(request, "index.html", context)
+    instance = get_object_or_404(Post, id=4)
+    context = dict(title=instance.title, instance=instance)
+    return render(request, "post_detail.html", context)
 
 
 def posts_list(request):
