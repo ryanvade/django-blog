@@ -1,11 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 
 from posts.models import Post
+from .forms import PostForm
 
 
 def posts_create(request):
-    context = dict(title="Create")
-    return render(request, "index.html", context)
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        print(form.cleaned_data.get("title"))
+        print(form.cleaned_data.get("content"))
+    context = dict(form=form)
+    return render(request, "post_form.html", context)
 
 
 def posts_detail(request, id):
