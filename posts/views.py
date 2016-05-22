@@ -26,7 +26,7 @@ def posts_detail(request, id):
 def posts_list(request):
     queryset = Post.objects.all()
     context = dict(object_list=queryset, title="List is working")
-    return render(request, "index.html", context)
+    return render(request, "post_list.html", context)
 
 
 def posts_update(request, id=None):
