@@ -8,8 +8,8 @@ def posts_create(request):
     return render(request, "index.html", context)
 
 
-def posts_detail(request):
-    instance = get_object_or_404(Post, id=4)
+def posts_detail(request, id):
+    instance = get_object_or_404(Post, id=id)
     context = dict(title=instance.title, instance=instance)
     return render(request, "post_detail.html", context)
 
